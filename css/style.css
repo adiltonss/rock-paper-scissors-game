@@ -1,0 +1,442 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Barlow Semi Condensed";
+}
+
+:root{
+    --dark-text:#EAEFF2;
+    --light-text:#394262;
+    --score-bg:#F8F8FA;
+    --rock-border-color:#dd405d;
+    --scissors-border-color:#eca922;
+    --paper-border-color:#4865f4;
+    --lizard-border-color:#8c5de5;
+    --spock-border-color:#52bed1;
+}
+
+.active{
+    display: flex;
+    animation: hideElement 1s linear;
+}
+
+.inactive{
+    display: none;
+}
+
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: rgb(26,45,77);
+    background: radial-gradient(circle, rgba(26,45,77,1) 16%, rgba(21,27,61,1) 48%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 600;
+    color: var(--dark-text);
+    overflow: hidden;
+}   
+
+.rules{
+    width: 100%;
+    height: 100vh;
+    background: #1a2d4d;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-text);
+    z-index: 1000;
+}
+
+.rules img{
+    margin-top: 2em;
+}
+
+.close_rules{
+    margin-top: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: thin solid #fff;
+    color: #fff;
+    background: #1a2d4d;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.close_rules:hover{
+    background: #3b4363;
+}
+
+.close_rules:active{
+    background: #1a2d4d;
+}
+
+.score__board{
+    width: 80%;
+    max-height: 120px;
+    border: 3px solid var(--dark-text);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.game__name{
+    width: 30%;
+    font-size: 18px;
+    color: var(--dark-text);
+    line-height: .90;
+    letter-spacing: 1px;
+    padding: 5px;
+    font-weight: 300;
+}
+
+.show__score{
+    width: 30%;
+    height: 90px;
+    background: var(--score-bg);
+    padding: 2px;
+    color: var(--light-text);    
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.game__area{
+    position: relative;
+    width: 300px;
+    height: 289px;
+    align-items: center;
+    justify-content: center;
+}
+
+.game__area img{
+    width: 80%;
+}
+
+.scissors__div, .paper__div, .rock__div{
+    position: absolute;
+
+}
+
+.scissors__div img, .paper__div img, .rock__div img{
+    width: 50%;
+}
+
+.scissors__div{
+    width: 80px;
+    height: 80px;
+    top: 0;
+    right: 0;
+    background: var(--score-bg);
+    border-radius: 50%;
+    border: 10px solid var(--scissors-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px 1px #00000089;
+    cursor: pointer;
+}
+
+.paper__div{
+    width: 80px;
+    height: 80px;
+    top: 0;
+    left:0;
+    background: var(--score-bg);
+    border-radius: 50%;
+    border: 10px solid var(--paper-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px 1px #00000089;
+    cursor: pointer;
+}
+
+.rock__div{
+    width: 80px;
+    height: 80px;
+    bottom:0;
+    background: var(--score-bg);
+    border-radius: 50%;
+    border: 10px solid var(--rock-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px 1px #00000089;
+    cursor: pointer;
+}
+
+.rules-btn{
+    font-size: 25px;
+    padding: 5px 30px;
+    color: var(--dark-text);
+    background: #00000000;
+    border: 2px solid var(--score-bg);
+    border-radius: 10px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.rules-btn:hover{
+    background: #00011819;
+}
+
+.match__area{
+    width: 300px;
+    height: 200px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.your-hand, .house-hand{
+    width: 80px;
+    height: 80px;
+    background: #0e192b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.your-hand-img, .house-hand-img{
+    width: 50%;
+}
+
+.scissors{
+    background: var(--score-bg);
+    border: 10px solid #eca922;
+}
+
+.paper{
+    background: var(--score-bg);
+    border: 10px solid #4865f4; 
+}
+
+.rock{
+    background: var(--score-bg);
+    border: 10px solid #dd405d;
+}
+
+.you, .house{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.you span, .house span{
+    color: var(--dark-text);
+    font-weight: 300;
+    border: thin solid var(--dark-text);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.end-game-board{
+    width: 250px;
+    height: 150px;
+    transition: 1s all linear;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.victorious-one{
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    color: var(--dark-text);
+}
+
+.play-again-btn{
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 50px 0 0 0;
+}
+
+.animateYou{
+    animation: animateYou 2s linear;
+}
+
+.animateCpu{
+    animation: animateCpu 2s linear;
+}
+
+@keyframes hideElement {
+    0%{
+        opacity: 0;    
+    }
+    20%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 2;
+    }
+    80%{
+        opacity: 3;
+    }
+}
+
+@keyframes animateYou {
+    0%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 0;
+        transform: translateX(-160px);
+    }
+    30%{
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes animateCpu{
+    0%{
+        opacity: 0;
+    }
+    15%{
+        opacity: 0;
+        transform: translateX(160px);
+    }
+    30%{
+        transform: translateX(100px);
+    }
+    80%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+/* rulesScreen have 665px of height */
+
+@media screen and (min-width: 600px) {
+    body{
+        font-size: 30px;
+    }
+
+    .rules{
+        width: 60%;
+        height: 80%;
+        z-index: 100;
+    } 
+
+    .rules-btn{
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+    }
+
+    .score__board{
+        width: 50%;
+    }
+
+    .game__name{
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+    }
+
+    .game__area{
+        width: 400px;
+        height: 389px;
+    }
+
+    .scissors__div{
+        width: 120px;
+        height: 120px;
+        top: 0;
+        border-radius: 50%;
+        border: 15px solid var(--scissors-border-color);
+    }
+
+    .paper__div{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 15px solid var(--paper-border-color);
+    }
+
+    .rock__div{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 15px solid var(--rock-border-color);
+    }
+
+    .match__area{
+        border: thin soldi #000;
+        width: 400px;
+        height: 400px;
+    }
+
+    .you, .house{
+        width: 50%;
+        height: 80%;
+    }
+
+    .your-hand, .house-hand{
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+    }
+
+    .scissors{
+        border: 15px solid var(--scissors-border-color);
+    }
+
+    .paper{
+        border: 15px solid var(--paper-border-color);
+    }
+
+    .rock{
+        border: 15px solid var(--rock-border-color);
+    }
+
+    .end-game-board{
+        width: 400px;
+        height: 400px;
+        justify-content: space-evenly;
+    }
+
+    .victorious-one{
+        font-size: 100px;
+    }
+
+    .play-again-btn{
+        font-size: 30px;
+        font-weight: 700;
+        color: var(--light-text);
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Rock, Paper, Scissors, Lizard, Spock</title> 
+    <style>
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div role="textbox" class="rules inactive">
+        Rules
+        <img src="images/image-rules.svg" alt="">
+        <button class="close_rules">X</button>
+    </div>
+    <div role="textbox" class="score__board">
+        <div class="game__name">
+            <p>Rock</p>
+            <p>Paper</p>
+            <p>Scissors</p>
+        </div>
+        <div role="textbox" class="show__score">
+            <span>Score</span>
+            <span class="score"></span>
+        </div>    
+    </div>
+
+    <div role="main" class="game__area active">
+        <img src="images/bg-triangle.svg">
+        <div class="scissors__div">
+            <img class="scissors__img" src="images/icon-scissors.svg" alt="Scissors Hand">
+        </div>
+        <div class="paper__div">
+            <img class="paper__img" src="images/icon-paper.svg" alt="Paper Hand">
+        </div>
+        <div class="rock__div">
+            <img class="rock_img" src="images/icon-rock.svg" alt="Rock Hand">
+        </div>
+    </div>
+
+    <div role="main" class="match__area inactive">
+        <div class="you">
+            <div class="your-hand hc ac">
+                <img class="your-hand-img" alt="">
+            </div>
+            <span>Your Hand</span>
+        </div>
+        <div class="house">
+            <div class="house-hand hc ac">
+                <img class="house-hand-img" alt="">
+            </div>
+            <span>House Hand</span>
+        </div>
+    </div>
+
+    <div role="contentinfo" class="end-game-board inactive">
+        <div class="victorious-one">
+            You Loose
+        </div>
+        <div class="play-again">
+          <button class="play-again-btn">Play Again</button>  
+        </div>
+    </div>
+    
+    <button class="rules-btn">Rules</button>
+    
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/adiltonss">Adilton</a>.
+    </div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
